@@ -6,7 +6,7 @@
     "1234-5678-ABCD-EF90",
   ],
   "blacklist": [
-    "9999-XXXX-YYYY-ZZZZ"
-    "002538D421812EBF"
+    "9999-XXXX-YYYY-ZZZZ",
+    "002538D421812EBF",
   ]
  }
