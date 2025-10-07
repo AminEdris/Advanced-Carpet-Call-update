@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>تحميل برنامج Advanced Carpet Call</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0078D7;
+    }
+    a.download {
+      display: inline-block;
+      background: #0078D7;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    a.download:hover {
+      background: #005bb5;
+    }
+    .version {
+      margin-top: 20px;
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Advanced Carpet Call</h1>
+    <p>تحقق من التحديثات واحصل على آخر إصدار من البرنامج</p>
+
+    <!-- 🔹 رابط التحميل من صفحة Releases على GitHub -->
+    <a class="download" href="https://github.com/AminEdris/Advanced-Carpet-Call-update/releases/latest">
+      تحميل آخر إصدار
+    </a>
+
+    <!-- 🔹 عرض رقم الإصدار من ملف JSON -->
+    <div class="version" id="ver">جارِ قراءة الإصدار الحالي...</div>
+  </div>
+
+  <script>
+    // 🔹 قراءة الإصدار من ملف JSON الموجود في الريبو
+    fetch('https://raw.githubusercontent.com/AminEdris/Advanced-Carpet-Call-update/main/version.json')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('ver').innerText = "الإصدار الحالي: " + (data.version || "غير محدد");
+      })
+      .catch(() => {
+        document.getElementById('ver').innerText = "تعذر تحميل رقم الإصدار";
+      });
+  </script>
+
+</body>
+</html>
