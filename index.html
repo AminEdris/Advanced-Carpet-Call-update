@@ -1,12 +1,86 @@
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل برنامج Advanced Carpet Call</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل برنامج Advanced Carpet Call</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8LZSQYFNK4);
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(180deg, #f9f9f9, #e0e0e0);
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+      font-size: 18px;
+    }
+    .version {
+      margin-top: 10px;
+      color: #008000;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    a.download-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 20px;
+      color: white;
+      background: #0078D7;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    a.download-btn:hover {
+      background: #005A9E;
+    }
+  </style>
 </head>
 <body>
-    <h1>مرحبًا بك في صفحة تحميل برنامج Advanced Carpet Call</h1>
-    <p><a href="https://github.com/AminEdris/Advanced-Carpet-Call-update/releases/latest/download/AdvancedCarpetCallSetup.exe">اضغط هنا لتحميل البرنامج</a></p>
+  <h1>مرحبًا بك في برنامج Advanced Carpet Call</h1>
+  <p>اضغط على الزر بالأسفل لتحميل آخر إصدار من البرنامج</p>
+
+  <!-- مكان عرض الإصدار الحالي -->
+  <div id="version" class="version">جاري التحقق من الإصدار...</div>
+
+  <!-- زر التحميل -->
+  <a href="https://github.com/AminEdris/Advanced-Carpet-Call-update/releases/latest/download/AdvancedCarpetCallSetup.exe"
+     class="download-btn"
+     onclick="gtag('event', 'download_click', {'event_category':'Download','event_label':'AdvancedCarpetCallSetup'});">
+     🔽 تحميل البرنامج الآن
+  </a>
+
+  <p style="margin-top:50px; color:#888;">© 2025 Amin Edris. All Rights Reserved.</p>
+
+  <script>
+    // قراءة رقم الإصدار من ملف JSON
+    fetch('version.json')
+      .then(response => {
+        if (!response.ok) throw new Error("لم يتم العثور على ملف الإصدار");
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('version').textContent = "الإصدار الحالي: " + data.version;
+      })
+      .catch(error => {
+        document.getElementById('version').textContent = "تعذر تحميل رقم الإصدار";
+        console.error(error);
+      });
+  </script>
 </body>
 </html>
