@@ -123,7 +123,7 @@
 
   <script>
     // قراءة رقم الإصدار من ملف JSON
-    fetch('version.json')
+    fetch('Version.json')
       .then(response => {
         if (!response.ok) throw new Error("لم يتم العثور على ملف الإصدار");
         return response.json();
