@@ -59,18 +59,19 @@
 
   <script>
     // قراءة رقم الإصدار من GitHub مباشرة
-    fetch('https://raw.githubusercontent.com/AminEdris/Advanced-Carpet-Call-update/main/version.json')
-      .then(response => {
-        if (!response.ok) throw new Error("لم يتم العثور على ملف الإصدار");
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById('version').textContent = "الإصدار الحالي: " + data.version;
-      })
-      .catch(error => {
-        document.getElementById('version').textContent = "تعذر تحميل رقم الإصدار";
-        console.error(error);
-      });
+    fetch('https://raw.githubusercontent.com/AminEdris/Advanced-Carpet-Call-update/main/Version.json')
+  .then(response => {
+    if (!response.ok) throw new Error("لم يتم العثور على ملف الإصدار");
+    return response.json();
+  })
+  .then(data => {
+    document.getElementById('version').textContent = "الإصدار الحالي: " + data.Version;
+  })
+  .catch(error => {
+    document.getElementById('version').textContent = "تعذر تحميل رقم الإصدار";
+    console.error(error);
+  });
+
   </script>
 
 </body>
