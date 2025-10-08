@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل برنامج Advanced Carpet Call</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Almarai', Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      min-height:100vh; text-align:center; padding:20px;
+    }
+    h1 { font-size:2.5rem; margin-bottom:15px; color:#1f3c88; }
+    p { font-size:1.2rem; margin-bottom:20px; color:#555; }
+    .version { margin:15px 0; font-weight:bold; font-size:1.3rem; color:#007B33; }
+    .download-btn {
+      display:inline-block; padding:15px 40px; font-size:1.3rem; font-weight:bold;
+      color:#fff; background:#0078D7; text-decoration:none; border-radius:12px;
+      transition: all 0.3s ease; box-shadow:0 6px 15px rgba(0,0,0,0.1);
+    }
+    .download-btn:hover { background:#005A9E; transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+    footer { margin-top:50px; font-size:0.9rem; color:#888; }
+    .download-btn::before { content:"⬇️ "; }
+    .card { background:#fff; padding:40px 30px; border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.1); max-width:500px; width:100%; animation:fadeIn 1s ease forwards; }
+    @keyframes fadeIn { 0% { opacity:0; transform:translateY(20px); } 100% { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>مرحبًا بك في Advanced Carpet Call</h1>
+    <p>اضغط على الزر بالأسفل لتحميل آخر إصدار من البرنامج بسهولة وأمان</p>
+
+    <div id="version" class="version">جاري التحقق من الإصدار...</div>
+
+    <a href="https://github.com/AminEdris/Advanced-Carpet-Call-update/raw/main/CarpetCostCalAdv1Setup.exe"
+       class="download-btn"
+       onclick="gtag('event', 'download_click', {'event_category':'Download','event_label':'AdvancedCarpetCallSetup'});">
+       تحميل البرنامج الآن
+    </a>
+  </div>
+
+  <footer>© 2025 Amin Edris. جميع الحقوق محفوظة.</footer>
+
+  <script>
+    // قراءة رقم الإصدار من ملف JSON على GitHub
+    fetch('https://raw.githubusercontent.com/AminEdris/Advanced-Carpet-Call-update/refs/heads/main/Version.json')
+      .then(response => {
+        if (!response.ok) throw new Error("لم يتم العثور على ملف الإصدار");
+        return response.json();
+      })
+      .then(data => {
+        // مفتاح JSON الآن "Version" بدل "version"
+        document.getElementById('version').textContent = "الإصدار الحالي: " + data.Version;
+      })
+      .catch(error => {
+        document.getElementById('version').textContent = "تعذر تحميل رقم الإصدار";
+        console.error(error);
+      });
+  </script>
+
+</body>
+</html>
