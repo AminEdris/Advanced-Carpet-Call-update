@@ -129,10 +129,10 @@
         return response.json();
       })
       .then(data => {
-        document.getElementById('version').textContent = "الإصدار الحالي: " + data.version;
+        document.getElementById('Version').textContent = "الإصدار الحالي: " + data.version;
       })
       .catch(error => {
-        document.getElementById('version').textContent = "تعذر تحميل رقم الإصدار";
+        document.getElementById('Version').textContent = "تعذر تحميل رقم الإصدار";
         console.error(error);
       });
   </script>
